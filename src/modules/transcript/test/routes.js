@@ -16,7 +16,7 @@ describe('Transcript CRUD routes tests', function () {
 
     before(function (done) {
         mockup = {
-            name: 'name'
+            year: 2562
         };
         credentials = {
             username: 'username',
@@ -68,7 +68,7 @@ describe('Transcript CRUD routes tests', function () {
                         }
                         var resp = res.body;
                         assert.equal(resp.status, 200);
-                        assert.equal(resp.data.name, mockup.name);
+                        assert.equal(resp.data.year, mockup.year);
                         done();
                     });
             });
@@ -86,7 +86,7 @@ describe('Transcript CRUD routes tests', function () {
                     return done(err);
                 }
                 var resp = res.body;
-                assert.equal(resp.data.name, mockup.name);
+                assert.equal(resp.data.year, mockup.year);
                 done();
             });
     });
@@ -116,7 +116,7 @@ describe('Transcript CRUD routes tests', function () {
                             return done(err);
                         }
                         var resp = res.body;
-                        assert.equal(resp.data.name, update.name);
+                        assert.equal(resp.data.year, update.year);
                         done();
                     });
             });
@@ -182,7 +182,7 @@ describe('Transcript CRUD routes tests', function () {
                 }
                 var resp = res.body;
                 var update = {
-                    name: 'name update'
+                    year: 2563
                 }
                 request(app)
                     .put('/api/transcripts/' + resp.data._id)
